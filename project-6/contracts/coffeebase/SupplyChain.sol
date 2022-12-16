@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.16;
 
 import "../coffeeaccesscontrol/ConsumerRole.sol";
 import "../coffeeaccesscontrol/DistributorRole.sol";
@@ -13,7 +13,7 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
   /********************************************************************************************/
 
   // Define 'owner'
-  address contractOwner;
+  address payable owner;
 
   // Define a variable called 'upc' for Universal Product Code (UPC)
   uint  upc;
@@ -59,7 +59,7 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
     State   itemState;  // Product State as represented in the enum above
     address distributorID;  // Metamask-Ethereum address of the Distributor
     address retailerID; // Metamask-Ethereum address of the Retailer
-    address consumerID; // Metamask-Ethereum address of the Consumer
+    address payable consumerID; // Metamask-Ethereum address of the Consumer
   }
 
   /********************************************************************************************/
@@ -82,7 +82,7 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
 
   // Define a modifer that checks to see if msg.sender == owner of the contract
   modifier onlyOwner() {
-    require(msg.sender == contractOwner);
+    require(msg.sender == owner);
     _;
   }
 
@@ -162,26 +162,32 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
   // and set 'sku' to 1
   // and set 'upc' to 1
   constructor() public payable {
-    contractOwner = msg.sender;
+    owner = msg.sender;
     sku = 1;
     upc = 1;
   }
 
   // Define a function 'kill' if required
   function kill() public {
-    if (msg.sender == contractOwner) {
-      selfdestruct(contractOwner);
+    if (msg.sender == owner) {
+      selfdestruct(owner);
     }
   }
 
   // Define a function 'harvestItem' that allows a farmer to mark an item 'Harvested'
-  function harvestItem(uint _upc, address _originFarmerID, string _originFarmName, string _originFarmInformation, string  _originFarmLatitude, string  _originFarmLongitude, string  _productNotes) public 
+  function harvestItem(uint _upc,
+    address _originFarmerID,
+    string memory _originFarmName,
+    string memory _originFarmInformation,
+    string memory _originFarmLatitude,
+    string memory _originFarmLongitude,
+    string memory _productNotes) public
   {
     // Add the new item as part of Harvest
     items[_upc] = Item({
       sku: sku,
       upc: _upc,
-      ownerID: contractOwner,
+      ownerID: owner,
       originFarmerID: _originFarmerID,
       originFarmName: _originFarmName,
       originFarmInformation: _originFarmInformation,
@@ -261,12 +267,12 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
     {
 
       // Update the appropriate fields - ownerID, distributorID, itemState
-      items[_upc].ownerID = contractOwner;
+      items[_upc].ownerID = owner;
       items[_upc].distributorID = msg.sender;
       items[_upc].itemState = State.Sold;
 
       // Transfer money to farmer
-      address farmerAddress = address(uint160(items[_upc].originFarmerID));
+      address payable farmerAddress = address(uint160(items[_upc].originFarmerID));
       
       farmerAddress.transfer(msg.value);
 
@@ -300,7 +306,7 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
     onlyRetailer
   {
     // Update the appropriate fields - ownerID, retailerID, itemState
-    items[_upc].ownerID = contractOwner;
+    items[_upc].ownerID = owner;
     items[_upc].retailerID = msg.sender;
     items[_upc].itemState = State.Received;
 
@@ -317,7 +323,7 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
     onlyConsumer
   {
     // Update the appropriate fields - ownerID, consumerID, itemState
-    items[_upc].ownerID = contractOwner;
+    items[_upc].ownerID = owner;
     items[_upc].consumerID = msg.sender;
     items[_upc].itemState = State.Purchased;
 
@@ -332,10 +338,10 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
   uint    itemUPC,
   address ownerID,
   address originFarmerID,
-  string  originFarmName,
-  string  originFarmInformation,
-  string  originFarmLatitude,
-  string  originFarmLongitude
+  string memory originFarmName,
+  string memory originFarmInformation,
+  string memory originFarmLatitude,
+  string memory originFarmLongitude
   ) 
   {
     // Assign values to the 8 parameters
@@ -366,7 +372,7 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole{
   uint    itemSKU,
   uint    itemUPC,
   uint    productID,
-  string  productNotes,
+  string memory productNotes,
   uint    productPrice,
   uint    itemState,
   address distributorID,

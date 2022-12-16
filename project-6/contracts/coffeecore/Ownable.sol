@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.16;
 
 import "../coffeebase/SupplyChain.sol";
 
@@ -16,7 +16,7 @@ contract Ownable is SupplyChain {
     }
 
     /// Look up the address of the owner
-    function owner() public view returns (address) {
+    function _owner() public view returns (address) {
         return origOwner;
     }
 
