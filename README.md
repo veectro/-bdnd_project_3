@@ -13,6 +13,15 @@ The DApp User Interface when running should look like...
 ![truffle test](images/ftc_transaction_history.png)
 
 
+## Version 
+```
+Truffle v5.7.0 (core: 5.7.0)
+Ganache v7.5.0
+Solidity v0.5.16 (solc-js)
+Node v16.17.0
+Web3.js v1.7.4
+```
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
