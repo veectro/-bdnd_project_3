@@ -34,7 +34,7 @@ The draw.io are used and the project located in images-Folder.
 ![udacity_coffee_supply_chain-state.jpg](images%2Fudacity_coffee_supply_chain-state.jpg)
 
 ## UML Diagram
-For this part, the library called `[sol2uml](https://github.com/naddison36/sol2uml)` will be used.  
+For this part, the library called [sol2uml](https://github.com/naddison36/sol2uml) will be used.  
 ```
 cd project-6
 
@@ -44,7 +44,7 @@ npm link sol2uml --only=production
 # generate class diagram as svg
 sol2uml class contracts -o ../images/udacity_coffee_supply_chain-class.svg
 ```
-![udacity_coffee_supply_chain-class.svg](images%2Fudacity_coffee_supply_chain-class.svg)![udacity_coffee_supply_chain-state.jpg](images%2Fudacity_coffee_supply_chain-state.jpg)
+![udacity_coffee_supply_chain-class.svg](images%2Fudacity_coffee_supply_chain-class.svg)
 
 ## Getting Started
 
