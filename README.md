@@ -23,7 +23,7 @@ Web3.js v1.7.4
 ```
 
 ## UML Diagram
-The draw.io are used and the project located in images-Folder.
+The draw.io are used and the project located in [udacity_coffee_supply_chain.drawio](images%2Fudacity_coffee_supply_chain.drawio) .
 ### Activity Diagram
 ![udacity_coffee_supply_chain-activity.jpg](images%2Fudacity_coffee_supply_chain-activity.jpg)
 
