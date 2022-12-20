@@ -22,6 +22,30 @@ Node v16.17.0
 Web3.js v1.7.4
 ```
 
+## UML Diagram
+The draw.io are used and the project located in images-Folder.
+### Activity Diagram
+![udacity_coffee_supply_chain-activity.jpg](images%2Fudacity_coffee_supply_chain-activity.jpg)
+
+### Sequence Diagram
+![udacity_coffee_supply_chain-sequence.jpg](images%2Fudacity_coffee_supply_chain-sequence.jpg)
+
+## State Diagram
+![udacity_coffee_supply_chain-state.jpg](images%2Fudacity_coffee_supply_chain-state.jpg)
+
+## UML Diagram
+For this part, the library called `[sol2uml](https://github.com/naddison36/sol2uml)` will be used.  
+```
+cd project-6
+
+# install sol2uml globally
+npm link sol2uml --only=production 
+
+# generate class diagram as svg
+sol2uml class contracts -o ../images/udacity_coffee_supply_chain-class.svg
+```
+![udacity_coffee_supply_chain-class.svg](images%2Fudacity_coffee_supply_chain-class.svg)![udacity_coffee_supply_chain-state.jpg](images%2Fudacity_coffee_supply_chain-state.jpg)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
