@@ -23,6 +23,48 @@ Web3.js v1.7.4
 @truffle/hdwallet-provider v2.1.2
 ```
 
+## Contract Address
+
+The smart contract is deployed in the `goerli`-Network with following addresses:
+
+### FarmerRole
+[link](https://goerli.etherscan.io/address/0x88cb33f44929cb429d8f34999eb2bf8007a6ee58)
+```
+transaction hash:    0x30309beb39081fd6b0d88999b63585015a7c32f878f9ae1acb864c29d32e0c29
+contract address:    0x88Cb33F44929cB429D8F34999eb2bf8007a6EE58
+```
+### DistributorRole
+[link](https://goerli.etherscan.io/address/0x00c1092deeb7a4e33bd4904f9fa334528e1f496f)
+
+```
+transaction hash:    0x572afaf22cb199709702273de2609a68c9b4f7a9707f08134e438a7c30b286f6
+contract address:    0x00C1092DEEb7A4E33BD4904f9fA334528e1f496F
+```
+### RetailerRole
+[link](https://goerli.etherscan.io/address/0x1fc05d3ebc788dcde8f054a62f6e7b98b547db63)
+
+```
+transaction hash:    0xa3f95fc6abeab6f251ca1a55b11109ac7a893ccf9c45a4f5e17bd939224257d7
+contract address:    0x1Fc05d3Ebc788Dcde8F054a62f6E7B98b547Db63
+```
+### ConsumerRole
+[link](https://goerli.etherscan.io/address/0x406453e690a6ce3a5f9f65bf7faea166c32dedc6)
+
+```
+transaction hash:    0xf7305e937a01789378a5813a13924d2de091d38086acbce2f9826a3a02089432
+contract address:    0x406453E690a6CE3a5f9F65BF7FAea166c32dEdc6
+```
+
+### SupplyChain
+[link](https://goerli.etherscan.io/address/0xaa57cc93f5e9e558a77c84fb0edb58d435675224)
+
+```
+transaction hash:    0x01715ad82c68e6ea1b7aa2f1d851fb91b35ba3dcd6e45a7b9d460285d0f8e69e
+contract address:    0xaA57cC93f5e9E558A77C84fB0eDB58D435675224    
+```
+
+
+
 ## UML Diagram
 The draw.io are used and the project located in [udacity_coffee_supply_chain.drawio](images%2Fudacity_coffee_supply_chain.drawio) .
 ### Activity Diagram
